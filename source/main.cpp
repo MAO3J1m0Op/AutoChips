@@ -110,13 +110,11 @@ int bet ()
 int main ()
 {
     cout << "How many people are playing?\n> ";
-    cin >> players;
-    if (players > 10){
-      cout <<"10 players is the maximum allowed";
-      exit(0);
-      
+    cin >> players; players -= 1;
+    if (players >= 10) {
+        cout <<"10 players is the maximum allowed.";
+        exit(0);
     }
-    players -= 1;
     for (int n;n <= players;++n) {
         cout << "What is player " << n << "'s name?\n> ";
         cin >> name[n];
