@@ -42,19 +42,18 @@ int bet ()
             cout << name[up] << " is the only active player and wins the pot of $" << pot << "!\n";
             cash[up] += pot;
             pot = 0;
-            dl++;
-            if (dl >= players){
-              dl = 0;
-            }
-            bb++;
-            if (bb >= players){
-              bb = 0;
-            }
-            lb++;
-            if (lb >= players){
-              lb = 0;
-            }
-            
+                        dl--;
+                         if (dl < 0){
+                         dl = players;
+                       }bb--;
+                         if (bb < 0){
+                         lb = players;
+                       }
+                        lb--;
+                         if (lb < 0){
+                         lb = players;
+                       }
+                       up = bb;
             return 1;
         }
         cout << name[up] << " is up with $" << cash[up] << ".\nWhat would you like to do?\n";
@@ -172,18 +171,18 @@ int main ()
                         cout << name[winner] << " wins the pot of $" << pot << "!\n";
                         pot += cash[winner];
                         pot = 0;
-                        dl++;
-                        if (dl >= players){
-                           dl = 0;
-                        }
-                        bb++;
-                        if (bb >= players){
-                          bb = 0;
-                        }
-                        lb++;
-                         if (lb >= players){
-                         lb = 0;
+                        dl--;
+                         if (dl < 0){
+                         dl = players;
+                       }bb--;
+                         if (bb < 0){
+                         lb = players;
                        }
+                        lb--;
+                         if (lb < 0){
+                         lb = players;
+                       }
+                       up = bb;
                         
                     }
                 }
